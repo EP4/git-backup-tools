@@ -12,8 +12,7 @@ services:
         max-file: "5"
     environment:
       - HOST=${GITLAB_HOST}
-      - GITLAB_USER=${GITLAB_USER}
-      - TOKEN=${GITLAB_ACCESS_TOKEN}
+      - GITLAB_TOKEN=${GITLAB_TOKEN}
       - MAX_BACKUPS=10
       - TIME_ZONE=America/Montreal
     volumes:
