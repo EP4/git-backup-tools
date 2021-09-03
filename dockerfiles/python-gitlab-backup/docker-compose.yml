@@ -1,0 +1,20 @@
+version: "2"
+services:
+  github-backup:
+    image: ep4/python-gitlab-backup:latest
+    container_name: "gitlab-backup"
+    hostname: "gitlab-backup"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    environment:
+      - GITLAB_HOST
+      - GITLAB_USER
+      - TOKEN=${GITLAB_ACCESS_TOKEN}
+      - MAX_BACKUPS=10
+      - TIME_ZONE=America/Montreal
+    volumes:
+      - ./data:/srv/var
