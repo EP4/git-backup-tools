@@ -1,7 +1,7 @@
 version: "2"
 services:
   github-backup:
-    image: ep4/python-gitlab-backup:latest
+    image: mach4/python-gitlab-backup:latest
     container_name: "gitlab-backup"
     hostname: "gitlab-backup"
     restart: always
