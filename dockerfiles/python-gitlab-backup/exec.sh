@@ -9,10 +9,8 @@ echo "$(date) - start backup scheduler"
 while :; do
     DATE=$(date +%Y%m%d-%H%M%S)
 
-    for u in $(echo $GITLAB_NAMESPACE | tr "," "\n"); do
-        echo "$(date) - execute backup for ${u}, ${DATE}"
-        gitlab-backup --host $HOST --private-token $GITLAB_TOKEN --with-membership --clone-bare --output-directory=/srv/var/${DATE}/${u}
-    done
+    echo "$(date) - execute backup, ${DATE}"
+    python /srv/gitlabbackup.py --host $HOST --private-token $GITLAB_TOKEN --output-directory=/srv/var/${DATE}/${u}
 
     echo "$(date) - cleanup"
 
