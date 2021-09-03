@@ -1,4 +1,3 @@
-  
 #!/bin/sh
 
 TIME_ZONE=${TIME_ZONE:=UTC}
@@ -12,7 +11,7 @@ while :; do
 
     for u in $(echo $GITLAB_USER | tr "," "\n"); do
         echo "$(date) - execute backup for ${u}, ${DATE}"
-        gitlab-backup ${u} --host=$HOST --private-token=$TOKEN --all --output-directory=/srv/var/${DATE}/${u} --private --gists
+        gitlab-backup --username=${u} --host=$HOST --private-token=$TOKEN --output-directory=/srv/var/${DATE}/${u}
     done
 
     echo "$(date) - cleanup"

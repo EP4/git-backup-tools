@@ -1,4 +1,3 @@
-  
 #!/bin/sh
 
 TIME_ZONE=${TIME_ZONE:=UTC}
